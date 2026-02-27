@@ -52,3 +52,6 @@ This repository contains guardian-cli-test as the main project directory.
  - For troubleshooting, check logs/ and reports/ folders
 
 ---
+
+#### Next Steps
+ - Change the AI model from claude-sonnet-4-5 to google/gemini-2.5-flash for lower token usage. This will enable us to get detailed technical explanations for all 60 vulnerabilities that are generated for dvwa. 
