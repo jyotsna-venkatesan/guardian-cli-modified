@@ -1,0 +1,41 @@
+{
+  "target": "https://dvwa.csala",
+  "session_id": "20260205_214013",
+  "start_time": "2026-02-05T21:40:13.645170",
+  "current_phase": "web_pentest_workflow",
+  "completed_actions": [],
+  "findings": [],
+  "tool_executions": [
+    {
+      "tool": "httpx",
+      "command": "httpx -j -threads 50 -timeout 10 -tech-detect -status-code -title -u https://dvwa.csala",
+      "target": "https://dvwa.csala",
+      "timestamp": "",
+      "exit_code": 2,
+      "output": "",
+      "duration": 0.600839,
+      "findings_count": 0,
+      "id": null
+    },
+    {
+      "tool": "httpx",
+      "command": "",
+      "target": "https://dvwa.csala",
+      "timestamp": "2026-02-05T21:40:15.637318",
+      "exit_code": 0,
+      "output": "",
+      "duration": 0.600839,
+      "findings_count": 0,
+      "id": "httpx_1770356415637"
+    }
+  ],
+  "ai_decisions": [],
+  "context": {
+    "target": "https://dvwa.csala",
+    "scope": [],
+    "discovered_assets": [],
+    "open_ports": [],
+    "services": [],
+    "technologies": []
+  }
+}
