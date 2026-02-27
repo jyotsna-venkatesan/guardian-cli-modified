@@ -27656,3 +27656,22 @@ If authorized and the target is intentionally vulnerable for testing:
 **Strategic Planner Assessment Complete**
 *Risk Level: CRITICAL | Confidence: HIGH | Recommended Action: IMMEDIATE CONTAINMENT*
 2026-02-25 10:05:14,374 - guardian - INFO - Session saved to: reports/session_20260225_092112.json
+2026-02-27 04:07:59,684 - guardian - INFO - Initialized OpenRouter provider: anthropic/claude-sonnet-4.5
+2026-02-27 04:07:59,687 - guardian - INFO - Loaded provider: openrouter
+2026-02-27 04:07:59,689 - guardian - INFO - AIClient initialized with OpenRouterProvider: anthropic/claude-sonnet-4.5
+2026-02-27 04:07:59,696 - guardian - INFO - Starting workflow: all_tools for target: https://dvwa.csalab.app
+2026-02-27 04:07:59,698 - guardian - INFO - Looking for workflow: all_tools
+2026-02-27 04:07:59,700 - guardian - INFO - Workflows directory: /guardian/guardian-cli/workflows
+2026-02-27 04:07:59,705 - guardian - INFO - Found exact match: all_tools.yaml
+2026-02-27 04:07:59,707 - guardian - INFO - Loading workflow file: /guardian/guardian-cli/workflows/all_tools.yaml
+2026-02-27 04:07:59,723 - guardian - INFO - Successfully loaded workflow from: all_tools.yaml
+2026-02-27 04:07:59,725 - guardian - INFO - Workflow has 18 steps
+2026-02-27 04:07:59,727 - guardian - INFO - Executing step: sslyze_tls
+2026-02-27 04:07:59,730 - guardian - INFO - Tool Agent selecting tool: sslyze
+2026-02-27 04:07:59,733 - guardian - INFO - Executing: sslyze --json_out=- --certinfo --sslv2 --sslv3 --tlsv1 --tlsv1_1 --tlsv1_2 --tlsv1_3 --reneg --resum --heartbleed --robot --openssl_ccs --compression --http_headers dvwa.csalab.app
+2026-02-27 04:08:04,148 - guardian - INFO - Tool sslyze completed in 4.41s
+2026-02-27 04:08:04,151 - guardian - INFO - Analyst Agent analyzing results...
+2026-02-27 04:08:04,739 - guardian - ERROR - OpenRouter generation failed: Error code: 403 - {'error': {'message': 'This model is not available in your region.', 'code': 403}}
+2026-02-27 04:08:04,750 - guardian - ERROR - Agent Analyst thinking error: Error code: 403 - {'error': {'message': 'This model is not available in your region.', 'code': 403}}
+2026-02-27 04:08:04,759 - guardian - ERROR - Workflow failed: Error code: 403 - {'error': {'message': 'This model is not available in your region.', 'code': 403}}
+2026-02-27 04:08:04,793 - guardian - INFO - Session saved to: reports/session_20260227_040756.json
