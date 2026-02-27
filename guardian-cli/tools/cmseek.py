@@ -1,0 +1,47 @@
+from typing import List, Dict, Any
+from tools.base_tool import BaseTool
+import json
+import re
+
+class CMSeekTool(BaseTool):
+    """Wrapper for CMSeek - CMS Detection and Exploitation Tool"""
+    
+    def get_command(self, target: str, **kwargs) -> List[str]:
+        # Use python3 to call cmseek.py directly since cmseek is not a global command
+        cmd = ["python3", "/opt/cmseek/cmseek.py", "-u", target]
+        
+        # Always use --batch to avoid interactive prompts
+        cmd.append("--batch")
+            
+        if kwargs.get("random_agent"):
+            cmd.append("--random-agent")
+            
+        if kwargs.get("light_scan"):
+             cmd.append("--light-scan")
+             
+        return cmd
+    
+    def parse_output(self, output: str) -> Dict[str, Any]:
+        result = {
+            "cms": None,
+            "version": None,
+            "url": None,
+            "raw_output": output
+        }
+        
+        # CMSeek output parsing (JSON output support is limited in some versions, parsing stdout is safer)
+        # Look for "CMS: WordPress" etc.
+        
+        cms_match = re.search(r"CMS Detected: (.*)", output, re.IGNORECASE)
+        if cms_match:
+            result["cms"] = cms_match.group(1).strip()
+            
+        version_match = re.search(r"CMS Version: (.*)", output, re.IGNORECASE)
+        if version_match:
+            result["version"] = version_match.group(1).strip()
+            
+        url_match = re.search(r"Target: (.*)", output, re.IGNORECASE)
+        if url_match:
+            result["url"] = url_match.group(1).strip()
+
+        return result

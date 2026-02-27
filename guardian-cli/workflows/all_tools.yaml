@@ -1,0 +1,95 @@
+name: all_tools
+description: Run all available tools in sequence for a full assessment.
+
+
+steps:
+    - name: sslyze_tls
+      type: tool
+      tool: sslyze
+      objective: "SSL/TLS analysis with SSLyze"
+
+    - name: xsstrike_xss
+      type: tool
+      tool: xsstrike
+      objective: "XSS vulnerability scan with XSStrike"
+
+    - name: nikto_web
+      type: tool
+      tool: nikto
+      objective: "Web vulnerability scan with Nikto"
+
+    - name: amass_enum
+      type: tool
+      tool: amass
+      objective: "Enumerate subdomains using Amass"
+
+    - name: cmseek_cms
+      type: tool
+      tool: cmseek
+      objective: "Detect CMS with CMSeek"
+
+    - name: arjun_api
+      type: tool
+      tool: arjun
+      objective: "Find hidden HTTP parameters with Arjun"
+
+    - name: httpx_probe
+      type: tool
+      tool: httpx
+      objective: "Probe HTTP services"
+
+    - name: subfinder_enum
+      type: tool
+      tool: subfinder
+      objective: "Subdomain enumeration with Subfinder"
+
+    - name: sqlmap_inject
+      type: tool
+      tool: sqlmap
+      objective: "SQL injection testing with SQLmap"
+
+    - name: wafw00f_detect
+      type: tool
+      tool: wafw00f
+      objective: "Detect WAF with Wafw00f"
+
+    - name: gobuster_dirs
+      type: tool
+      tool: gobuster
+      objective: "Brute force directories with Gobuster"
+
+    - name: dnsrecon_scan
+      type: tool
+      tool: dnsrecon
+      objective: "Perform DNS reconnaissance"
+
+    - name: ffuf_dir
+      type: tool
+      tool: ffuf
+      objective: "Directory brute force with FFUF"
+
+    - name: nmap_scan
+      type: tool
+      tool: nmap
+      objective: "Comprehensive port scan with Nmap"
+
+    - name: nuclei_vuln
+      type: tool
+      tool: nuclei
+      objective: "Vulnerability scan with Nuclei"
+
+    - name: whatweb_tech
+      type: tool
+      tool: whatweb
+      objective: "Technology fingerprinting with WhatWeb"
+      objective: "SSL/TLS testing with testssl"
+
+    - name: analyze_results
+      type: analysis
+      agent: analyst
+      objective: "Analyze all tool outputs"
+
+    - name: generate_report
+      type: report
+      agent: reporter
+      format: markdown
